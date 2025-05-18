@@ -1,46 +1,61 @@
-# Web Scraping Python Course
-This project aims to scrape information about a Python course from a website and save it to a CSV file using BeautifulSoup and requests.
+# Web Scraper for Course Information
 
-## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
+A Python-based web scraping tool that extracts course details (headline, summary, video link) from a specified educational platform and saves the results to CSV.
 
-## Overview
+## Contents
 
-This project scrapes Python course information including headline, summary, and video link from a specified URL and saves it to a CSV file.
+```
+.
+├── scrape.py               # Main scraping script
+├── requirements.txt        # Python dependencies
+├── cms_scrape.csv          # Example output of scraped course data
+└── README.md               # This file
+```
 
-## Features
+## Prerequisites
 
-- **Web Scraping:** Uses BeautifulSoup to scrape data from a webpage.
-- **CSV Output:** Saves the scraped data to a CSV file.
+* Python 3.7 or higher
+* Install required packages:
 
-## Installation
-
-1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/yourusername/web-scraping-python-course.git
-    cd web-scraping-python-course
-    ```
-
-2. **Create and activate a virtual environment:**
-    ```bash
-    python -m venv env
-    source env/bin/activate  # On Windows use `env\Scripts\activate`
-    ```
-
-3. **Install the required packages:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+  ```bash
+  pip install -r requirements.txt
+  ```
 
 ## Usage
 
-Run the `scrape.py` script to scrape data from the specified URL and save it to a CSV file:
+1. **Configure target URL**
 
-```bash
-python scrape.py
+   * Open `scrape.py` and set the `BASE_URL` or `TARGET_PAGE` to the page you wish to scrape.
+
+2. **Run the scraper**
+
+   ```bash
+   python scrape.py
+   ```
+
+   * The script will fetch the page content, parse the HTML, and extract headline, summary, and video link for each course.
+   * Results are written to `cms_scrape.csv` in the project root.
+
+3. **Inspect output**
+
+   * Open `cms_scrape.csv` with your favorite spreadsheet application or use pandas/R to analyze the data.
+
+## Script Overview (`scrape.py`)
+
+* Uses `requests` to retrieve HTML content.
+* Parses HTML with `BeautifulSoup` (using `lxml` parser).
+* Finds course elements by CSS selectors or HTML tags.
+* Extracts and cleans text fields.
+* Writes structured data to CSV via the `csv` module.
+
+## Contributing
+
+Contributions are welcome! Feel free to file issues or submit pull requests for enhancements, such as:
+
+* Support for pagination or multiple pages.
+* Export to other formats (JSON, Excel).
+* Integration with scheduling or automation tools.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](/LICENSE) for details.
