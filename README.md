@@ -8,6 +8,7 @@ A Python-based web scraping tool that extracts course details (headline, summary
 .
 ├── scrape.py               # Main scraping script
 ├── requirements.txt        # Python dependencies
+├── LICENSE
 ├── cms_scrape.csv          # Example output of scraped course data
 └── README.md               # This file
 ```
